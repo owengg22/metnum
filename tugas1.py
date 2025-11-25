@@ -20,7 +20,7 @@ y_detrended = y - baseline
 
 Sr = np.sum((y - baseline) ** 2)        
 St = np.sum((y - np.mean(y)) ** 2)     
-r2 =  1 -Sr / St
+r2 =  1 - Sr / St
 
 print("Order polynomial =", order)
 print("Koefisien regresi =", coeffs)
