@@ -9,8 +9,8 @@ t = data.iloc[:, 0].values
 y = data.iloc[:, 1].values      
 
 # segment untuk di analisis
-start = 1 
-end = 1000    
+start = 1
+end = 1200 
 t = t[start:end]
 y = y[start:end]
 
@@ -43,5 +43,5 @@ plt.figure(figsize=(13,4))
 plt.plot(t, y_detrended, label="Detrended Fetal ECG")
 plt.title("Detrended ECG")
 plt.legend()
-plt.grid()
+plt.grid()  
 plt.show()

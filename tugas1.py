@@ -3,7 +3,11 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 data = pd.read_csv("abdomen1.txt", header=None)
-y = data.iloc[:, 0].values   
+y = data.iloc[:, 0].values
+
+start = 1
+end = 1000 #max 20000
+y = y[start:end]
 
 
 t = np.arange(len(y))       
