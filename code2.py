@@ -16,10 +16,8 @@ y = y[start:end]
 
 order = 5
 
-
 coeffs = np.polyfit(t, y, order)
 baseline = np.polyval(coeffs, t)
-
 
 y_detrended = y - baseline
 
@@ -40,7 +38,7 @@ plt.legend()
 plt.grid()
 plt.show()
 
-# Plot sinyal setelah baseline removal
+# baseline removal
 plt.figure(figsize=(13,4))
 plt.plot(t, y_detrended, label="Detrended Fetal ECG")
 plt.title("Detrended ECG")
