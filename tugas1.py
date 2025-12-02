@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
-data = pd.read_csv("abdomen3.txt", header=None)
+data = pd.read_csv("abdomen1.txt", header=None)
 y = data.iloc[:, 0].values   
 
 
