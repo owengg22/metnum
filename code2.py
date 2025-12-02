@@ -2,7 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
-data = pd.read_csv("FetalECG.txt", sep="\t", header=None)
+#data = pd.read_csv("Person_07.txt", sep=",", header=None) #buat file yang di dapet dari kaggle
+data = pd.read_csv("FetalECG.txt", sep="\t", header=None) #buat file dari Pak Fauza
 
 t = data.iloc[:, 0].values      
 y = data.iloc[:, 1].values      
