@@ -2,14 +2,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
-#data = pd.read_csv("Person_07.txt", sep=",", header=None) #buat file yang di dapet dari kaggle
-data = pd.read_csv("FetalECG.txt", sep="\t", header=None) #buat file dari Pak Fauza
+#data = pd.read_csv("dataset2dps.txt", sep=",", header=None) #buat file yang di dapet dari kaggle
+data = pd.read_csv("FetalECG.txt", sep="\t", header=None) #buat file dari Pak Fauzan
 
 t = data.iloc[:, 0].values      
 y = data.iloc[:, 1].values      
 
-start = 1
-end = 1200
+start = 6000
+end = 10000
 t = t[start:end]
 y = y[start:end]
 

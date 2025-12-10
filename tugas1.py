@@ -8,11 +8,10 @@ y = data.iloc[:, 0].values
 
 #segment analisis
 start = 1
-end = 1000   
+end = 1000 
 y = y[start:end]
 
 t = np.arange(len(y))
-
 
 order = 5
 coeffs = np.polyfit(t, y, order)
