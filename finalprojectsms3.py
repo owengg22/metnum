@@ -16,7 +16,7 @@ class PendulumSederhana:
         self.J = (1/3) * self.m * (self.l**2)
         
         # Posisi Awal for pendulum
-        self.sudut = math.radians(-270) 
+        self.sudut = math.radians(-90) 
         self.kecepatan = 0.0
         self.waktu = 0.0
         
@@ -67,7 +67,7 @@ garis, = ax_kiri.plot([], [], 'o-', lw=3, color='black')
 bola, = ax_kiri.plot([], [], 'o', markersize=20, color='red')
 
 # graph
-ax_kanan.set_xlim(0, 10); ax_kanan.set_ylim(-150, 150)
+ax_kanan.set_xlim(0, 10); ax_kanan.set_ylim(-600, 600)
 ax_kanan.set_title("Grafik Respon")
 ax_kanan.grid(True)
 ax_kanan.axhline(0, color='black', linestyle='--')
@@ -78,10 +78,10 @@ data_waktu, data_sudut = [], []
 def update_gambar(frame):
     
     #1
-    kekuatan = simulasi.get_pid()
+    #kekuatan = simulasi.get_pid()
     
     #2
-    #kekuatan = 0.0
+    kekuatan = 0.0
     
     #declarate paramater fisika tadi wak
     simulasi.update_fisika(kekuatan)
