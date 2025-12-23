@@ -99,16 +99,14 @@ def rk4_step_manual():
     k4_theta = om_k4
 
     # Update Nilai Akhir (Rata-rata Terbobot)
-    theta = th + (h / 6.0) * (k1_theta + 2*k2_theta + 2*k3_theta + k4_theta)
-    omega = om + (h / 6.0) * (k1_omega + 2*k2_omega + 2*k3_omega + k4_omega)
+    theta = th + (h / 6.0) * (k1_theta + 2*k2_theta + 2*k3_theta + k4_theta) #sudut
+    omega = om + (h / 6.0) * (k1_omega + 2*k2_omega + 2*k3_omega + k4_omega) #kecepatan sudut
     
     # Update Waktu
     t += h
 
-# ==========================================
-# 3. VISUALISASI ANIMASI & GRAFIK
-# ==========================================
 
+#VISUAL
 def draw_pendulum(theta_rad):
     canvas_anim.delete("pendulum")
     
@@ -162,16 +160,16 @@ def draw_grid_labels(event=None):
     canvas_graph.create_line(margin_left, cy, w - margin_right, cy, 
                              fill="gray", dash=(2,4), tags="grid_static")
 
-    # --- LABEL TEKS ---
     
-    # Label Theta (Pojok Kiri Atas)
+    
+    # Label Theta [deg] 
     canvas_graph.create_text(margin_left + 10, margin_top, text="Theta [deg]", 
                              anchor="nw", fill="blue", font=("Arial", 9, "bold"), tags="grid_static")
     
     # Label Angka Y (90, 0, -90)
-    canvas_graph.create_text(margin_left - 5, margin_top, text="90", anchor="e", font=("Arial", 8), tags="grid_static")
+    canvas_graph.create_text(margin_left - 5, margin_top, text="180", anchor="e", font=("Arial", 8), tags="grid_static")
     canvas_graph.create_text(margin_left - 5, cy, text="0", anchor="e", font=("Arial", 8), tags="grid_static")
-    canvas_graph.create_text(margin_left - 5, margin_top + graph_h, text="-90", anchor="e", font=("Arial", 8), tags="grid_static")
+    canvas_graph.create_text(margin_left - 5, margin_top + graph_h, text="-180", anchor="e", font=("Arial", 8), tags="grid_static")
 
     # Label Time [s] (Pojok Kanan Bawah)
     canvas_graph.create_text(w - margin_right, h - margin_bottom - 15, text="Time [s]", 
@@ -211,7 +209,7 @@ def update_graph():
         px = margin_left + (t_val / t_scale) * graph_w
         
         # Mapping Sudut (Y)
-        py = cy - (theta_deg / 90.0) * (graph_h / 2) * 0.9
+        py = cy - (theta_deg / 180.0) * (graph_h / 2) * 0.9
         
         points.append(px)
         points.append(py)

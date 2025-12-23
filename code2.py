@@ -2,26 +2,26 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
-#data = pd.read_csv("dataset2dps.txt", sep=",", header=None) #buat file yang di dapet dari kaggle
-data = pd.read_csv("FetalECG.txt", sep="\t", header=None) #buat file dari Pak Fauzan
+data = pd.read_csv("Person_07.txt", sep=",", header=None ) #buat file yang di dapet dari kaggle
+#data = pd.read_csv("FetalECG.txt", sep="\t", header=None) #buat file dari Pak Fauzan
 
 t = data.iloc[:, 0].values      
 y = data.iloc[:, 1].values      
 
-start = 6000
+start = 0
 end = 10000
 t = t[start:end]
 y = y[start:end]
 
-order = 5
+order = 15
 
-coeffs = np.polyfit(t, y, order)
-baseline = np.polyval(coeffs, t)
-y_detrended = y - baseline
-
-Sr = np.sum((y - baseline) ** 2)
-St = np.sum((y - np.mean(y)) ** 2)
-r2 = 1 - Sr / St
+coeffs = np.polyfit(t, y, order) #mencari koefisien polinomial dengan error minimum (cari rumus baseline)
+baseline = np.polyval(coeffs, t) #polyval itu menghitung nilai y dari polinomial yang sudah ditemukan (hitung baseline di setiap t)
+y_detrended = y - baseline #hilangin baseline dari sinyal asli (detrended signal)
+#pake cara dania dlu deh
+Sr = np.sum((y - baseline) ** 2)#selisih sinyal asli dan baseline
+St = np.sum((y - np.mean(y)) ** 2)#total variasi sinyal terhdap rata-rata sinyal
+r2 = 1 - Sr / St #Persentase variasi sinyal yang bisa dijelaskan oleh baseline
 
 print("Order polynomial =", order)
 print("Koefisien regresi =", coeffs)
